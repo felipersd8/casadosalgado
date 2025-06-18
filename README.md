@@ -1,6 +1,6 @@
-# AUTOPROD – Sistema de Estoque, PDV e Gestão Financeira
+Sistema de Estoque, PDV e Gestão Financeira
 
-> **Meu objetivo com o AUTOPROD é oferecer uma solução enxuta e acessível para quem precisa integrar controle de estoque, ponto‑de‑venda e finanças em uma única aplicação web.** A stack escolhida – **Django** no back‑end e **React** no front‑end – garante velocidade de desenvolvimento, segurança e facilidade de manutenção.
+>Meu objetivo com o AUTOPROD é oferecer uma solução enxuta e acessível para quem precisa integrar controle de estoque, ponto‑de‑venda e finanças em uma única aplicação web.** A stack escolhida – **Django** no back‑end e **React** no front‑end – garante velocidade de desenvolvimento, segurança e facilidade de manutenção.
 
 ---
 
@@ -72,12 +72,11 @@ Contribuições são bem‑vindas! Abra uma *issue* ou envie seu *pull request*.
 ## 📫 Contato *(atualize apenas os hrefs)*
 
 <p align="left">
-  <a href="https://github.com/SEU_USER"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github"></a>
-  <a href="https://www.instagram.com/SEU_USER/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="instagram"></a>
-  <a href="https://www.linkedin.com/in/SEU_USER/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin"></a>
-  <a href="mailto:SEU_EMAIL"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="gmail"></a>
-  <a href="https://discord.com/users/SEU_DISCORD_ID"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="discord"></a>
-</p>
+  <a href="https://github.com/felipersd8"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="Github"></a>
+  <a href="https://www.instagram.com/felipe.rodriguesrsd/"><img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white" alt="instagram"></a>
+  <a href="https://www.linkedin.com/in/feliperodriguesagile/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="linkedin"></a>
+  <a href="mailto:inovartesistemaseti@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="gmail"></a>
+  
 
 ---
 
