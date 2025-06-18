@@ -1,27 +1,12 @@
-// FRONT-DEV/produtos/src/App.js
+// FRONT-DEV/produtos/src/pages/ProdutosList.js
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 
-// Importe os novos componentes de página (REMOVIDA A IMPORTAÇÃO DE PRODUTOSLIST AQUI)
-import GruposList from './pages/GruposList';
-import UnidadesList from './pages/UnidadesList';
-import CidadesList from './pages/CidadesList';
-
-// Importe o componente Navbar
-import Navbar from './components/Navbar';
-
-// Logo da Casa do Salgado (AJUSTADO PARA .JPG)
-const logoCasaDoSalgado = process.env.PUBLIC_URL + '/logo_casa_do_salgado.jpg';
-
-// Componente ProdutosList (agora está definido localmente no App.js, por isso não é importado de './pages')
 function ProdutosList() {
   const [produtos, setProdutos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [message, setMessage] = useState(''); // Para mensagens de delete
   const [messageType, setMessageType] = useState(''); // Para tipo de mensagem (success/error)
-
 
   const fetchProdutos = async () => {
     setMessage(''); // Limpa mensagens ao recarregar a lista
@@ -54,7 +39,8 @@ function ProdutosList() {
     setMessageType('');
 
     try {
-      // Usando concatenação de strings para a URL de DELETE.
+      // CORREÇÃO FINAL AQUI: Usando concatenação de strings para a URL de DELETE.
+      // Isso garante que o ID seja tratado como string pura e sem colchetes ou qualquer formatação inesperada.
       const deleteUrl = '/api/produtos/' + id + '/';
       
       const response = await fetch(deleteUrl, {
@@ -64,11 +50,14 @@ function ProdutosList() {
         },
       });
 
-      if (response.status === 204) { // 204 No Content para DELETE bem-sucedido
+      // DELETE com sucesso retorna status 204 No Content, que não tem corpo.
+      if (response.status === 204) {
         setMessage(`Produto "${produtoDescricao}" (ID: ${id}) excluído com sucesso!`);
         setMessageType('success');
+        // Filtra o produto excluído da lista para atualizar a UI
         setProdutos(prevProdutos => prevProdutos.filter(produto => produto.id !== id));
       } else {
+        // Se o status não for 204, tenta ler o corpo da resposta para pegar a mensagem de erro do Django
         const data = await response.json();
         setMessage(`Erro ao excluir produto (ID: ${id}): ${data.error || 'Erro desconhecido.'}`);
         setMessageType('error');
@@ -142,36 +131,4 @@ function ProdutosList() {
   );
 }
 
-
-// Componente principal App que gerencia o roteamento
-function App() {
-  return (
-    <Router> {/* O Router envolve toda a aplicação para habilitar o roteamento */}
-      <div className="app-container">
-        <header className="app-header">
-          <img src={logoCasaDoSalgado} alt="Logo Casa do Salgado" className="app-logo" />
-          <h1 className="app-title">Controle de Cadastros</h1> {/* Título mais geral */}
-          <p className="app-subtitle">Gerenciamento eficiente para a Casa do Salgado</p>
-          <Navbar /> {/* Inclui o menu de navegação */}
-        </header>
-        <main className="app-main">
-          <Routes> {/* Define as rotas */}
-            {/* Rota padrão: redireciona para /produtos */}
-            <Route path="/" element={<ProdutosList />} />
-            {/* Rotas para cada tipo de cadastro */}
-            <Route path="/produtos" element={<ProdutosList />} />
-            <Route path="/grupos" element={<GruposList />} />
-            <Route path="/unidades" element={<UnidadesList />} />
-            <Route path="/cidades" element={<CidadesList />} />
-          </Routes>
-          <section className="add-product-section">
-            <h2>Formulários de Cadastro</h2>
-            <p>Os formulários de cadastro e edição serão implementados aqui, conforme a página selecionada.</p>
-          </section>
-        </main>
-      </div>
-    </Router>
-  );
-}
-
-export default App;
+export default ProdutosList;

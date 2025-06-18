@@ -1,38 +1,339 @@
-.App {
+/* FRONT-DEV/produtos/src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Cores da identidade visual da Casa do Salgado */
+:root {
+  --ripe-lemon: #f6eb22;   /* Amarelo principal */
+  --cardinal: #d4242c;     /* Vermelho principal */
+  --night-rider: #1d140e;  /* Quase preto, para texto escuro */
+  --nutmeg: #7f432a;       /* Marrom */
+  --stiletto: #a53136;     /* Vermelho mais escuro */
+  --donkey-brown: #9f8979; /* Marrom claro */
+  --luxor-gold: #9c8b25;   /* Ouro esverdeado */
+  --mojo: #be394c;         /* Vermelho rosado */
+  --manatee: #88889c;      /* Cinza arroxeado */
+  --crail: #b9453f;        /* Vermelho alaranjado */
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--ripe-lemon); /* Cor de fundo amarela */
+  color: var(--night-rider); /* Cor de texto quase preta */
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff; /* Fundo branco para o container principal */
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  min-height: 90vh; /* Garante que o container ocupe boa parte da tela */
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background-color: var(--cardinal); /* Cabeçalho vermelho */
+  color: var(--ripe-lemon); /* Texto amarelo */
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  position: relative;
+}
+
+.app-logo {
+  max-width: 150px; /* Tamanho do logo */
+  height: auto;
+  margin-bottom: 15px; /* Espaçamento abaixo do logo */
+}
+
+.app-title {
+  font-size: 2.5em;
+  margin: 0;
+  letter-spacing: 1px;
+  color: white; /* Força o branco para o título principal no cabeçalho */
+}
+
+.app-subtitle {
+  font-size: 1.1em;
+  color: rgba(255, 255, 255, 0.8); /* Branco mais suave para o subtítulo */
+  margin-top: 5px;
+}
+
+/* Estilos para o Navbar */
+.navbar {
+  background-color: var(--night-rider); /* Fundo preto para o navbar */
+  padding: 10px 0;
+  width: 100%;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 15px;
+}
+
+.nav-link {
+  color: var(--ripe-lemon); /* Links em amarelo */
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 5px 10px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--cardinal); /* Vermelho no hover e ativo */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo transparente claro no hover e ativo */
+}
+
+
+.app-main {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+section {
+  background-color: #fdfdfd;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--ripe-lemon);
+}
+
+h2 {
+  color: var(--cardinal);
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--ripe-lemon);
+  padding-bottom: 10px;
+}
+
+/* Estilos da Tabela de Produtos (reutilizados para outras listas) */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.products-table th,
+.products-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.products-table th {
+  background-color: var(--cardinal);
+  color: var(--ripe-lemon);
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+.products-table tr:nth-child(even) {
+  background-color: #fefee0;
+}
+
+.products-table tr:hover {
+  background-color: #ffe;
+}
+
+.actions-cell {
+  white-space: nowrap;
+}
+
+/* Estilos dos Botões */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  margin-right: 8px;
+}
+
+.btn-edit {
+  background-color: var(--luxor-gold);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-edit:hover {
+  background-color: #8c7b1f;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.btn-delete {
+  background-color: var(--stiletto);
+  color: white;
+}
+
+.btn-delete:hover {
+  background-color: #8f262a;
+}
+
+.btn-primary {
+  background-color: var(--cardinal);
+  color: white;
+  margin-right: 0;
+}
+.btn-primary:hover {
+  background-color: var(--stiletto);
+}
+
+.btn-secondary { /* NOVO: Estilo para o botão Cancelar */
+  background-color: var(--manatee); /* Cinza */
+  color: white;
+  margin-right: 0;
+}
+.btn-secondary:hover {
+  background-color: #77778c; /* Cinza mais escuro */
+}
+
+
+/* Estilos de Formulário */
+.form-container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.generic-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: var(--night-rider);
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
+/* Mensagens de Formulário (sucesso/erro) */
+.form-message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.form-message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+
+/* Mensagens de Carregamento/Erro */
+.app-container p {
+  text-align: center;
+  font-size: 1.1em;
+  color: var(--night-rider);
+  margin-top: 20px;
+}
+
+/* Responsividade Básica */
+@media (max-width: 768px) {
+  .app-container {
+    margin: 10px;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  .app-title {
+    font-size: 1.8em;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+  .products-table th,
+  .products-table td {
+    padding: 8px 10px;
+  }
+  /* Ajuste do Navbar para telas pequenas */
+  .nav-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .nav-item {
+    margin: 5px 0;
+  }
+  .form-group input[type="text"],
+  .form-group input[type="number"],
+  .form-group select {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    padding: 6px 10px;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+    display: block;
+    width: 100%;
+  }
+  .actions-cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
